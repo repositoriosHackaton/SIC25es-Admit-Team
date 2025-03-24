@@ -33,6 +33,9 @@ Aplicación que, basada en datos de diferentes fuentes (exámenes como el GRE, T
 
 *   La interfaz se ha desarrollado en Bootstrap, permitiendo una visualización responsive y amigable.
 
+  ![image](https://github.com/user-attachments/assets/dafbfde7-70b0-49f9-93be-f65fb8e6ec9a)
+
+
 ### Proceso
 
 #### Fuente del Dataset
@@ -65,15 +68,7 @@ Aplicación que, basada en datos de diferentes fuentes (exámenes como el GRE, T
 * Se dividieron los datos en conjuntos de entrenamiento y prueba para evaluar el rendimiento del modelo.
 
 * Se calcularon métricas de rendimiento como el error cuadrático medio (MSE), error absoluto medio (MAE) y el coeficiente de determinación ($R^2$).
-
-  $$
-  \begin{aligned}
-  MSE &= \frac{1}{n} \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2 \\
-  MAE &= \frac{1}{n} \sum_{i=1}^{n} |Y_i - \hat{Y}_i| \\
-  R^2 &= 1 - \frac{\sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2}{\sum_{i=1}^{n} (Y_i - \bar{Y})^2}
-  \end{aligned}
-  $$
-
+  
 ### Funcionalidades
 
 #### Integración en una Página Web:
