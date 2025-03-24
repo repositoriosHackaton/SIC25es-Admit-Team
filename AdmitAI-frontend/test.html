@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probabilidad de Admisión - Admit AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de navegación (igual a la anterior) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="logo.svg" alt="Logo" width="50" height="50" class="me-2">
+                <span class="fs-4 fw-bold">Admit AI</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="container my-5">
+        <section class="row mb-4">
+            <div class="col-12 text-center">
+                <h1 class="mb-4">Probabilidad de Admisión</h1>
+                <p class="lead">Completa el siguiente cuestionario para obtener tu evaluación predictiva</p>
+            </div>
+        </section>
+
+        <form class="row justify-content-center">
+            <div class="col-md-8">
+                <!-- Pregunta 1: GRE -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <label class="form-label fw-bold ">1. Puntaje GRE (0-340)</label>
+                        <input name = "gre" type="number" class="form-control" min="0" max="340" required>
+                        <small class="form-text text-muted">Si no tienes puntaje oficial, realiza el <a href="https://www.kaptest.com/gre/free/free-gre-practice-test" target="_blank">test de práctica</a> y anota tu resultado aquí</small>
+                    </div>
+                </div>
+
+                <!-- Pregunta 2: TOEFL -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <label class="form-label fw-bold ">2. Puntaje TOEFL (0-120)</label>
+                        <input name = "toefl" type="number" class="form-control" min="0" max="120" required>
+                        <small class="form-text text-muted">Si no tienes puntaje oficial, realiza el <a href="https://www.bestmytest.com/toefl/practice-test" target="_blank">test de práctica</a> y anota tu resultado aquí</small>
+                    </div>
+                </div>
+
+                <!-- Pregunta 3: GPA -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <label class="form-label fw-bold ">3. Promedio Universitario</label>
+                        <input name="gpa" type="number" step="0.01" class="form-control" min="0" max="10.0" required>
+                    </div>
+                </div>
+
+                <!-- Pregunta 4: Recomendación -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <label class="form-label fw-bold ">4. Puntaje Cartas de Recomendación (1-5)</label>
+                        <input name="recommendation" type="number" class="form-control" min="1" max="5" required>
+                        <small class="form-text text-muted">Evaluación subjetiva basada en la fuerza percibida de tus cartas</small>
+                    </div>
+                </div>
+
+                <!-- Pregunta 5: Investigación -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <label class="form-label fw-bold ">5. ¿Has realizado investigación académica?</label>
+                        <div class="mt-2">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="investigacion" id="si" value="si" required>
+                                <label class="form-check-label" for="si">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="investigacion" id="no" value="no">
+                                <label class="form-check-label" for="no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pregunta 6: SOP -->
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <label class="form-label fw-bold ">6. Puntaje Statement of Purpose (1-5)</label>
+                        <input name="sop" type="number" class="form-control" min="1" max="5" required>
+                        <small class="form-text text-muted">Auto-evaluación subjetiva de la calidad de tu documento</small>
+                    </div>
+                </div>
+
+                <!-- Botón de enviar -->
+                <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Calcular Probabilidad</button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- Pie de página (igual al anterior) -->
+    <footer class="text-white py-4">
+        <div class="container">
+            <hr class="border-white">
+            <p class="text-center mb-0">
+                © 2025 Admit AI. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+    <script src="test.js"></script>
+</body>
+</html>

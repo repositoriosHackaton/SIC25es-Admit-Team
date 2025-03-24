@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admit AI</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Hoja de estilo personalizada -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="logo.svg" alt="Logo" width="50" height="50" class="me-2">
+                <span class="fs-4 fw-bold">Admit AI</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Menú lateral (visible en móviles como offcanvas) -->
+    <div class="offcanvas offcanvas-start bg-primary text-white" tabindex="-1" id="sidebarMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menú</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Formulario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Contáctanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Sobre Nosotros</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Sección Hero -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="container">
+                <div class="row min-vh-150 align-items-center justify-content-center">
+                    <div class="col-md-10 col-lg-8 d-flex flex-column align-items-center text-center">
+                        <h1 class="display-4 fw-bold text-white mb-4">
+                            Abre las puertas de tu futuro, con la ayuda de la IA.
+                        </h1>
+                        <a href="#" class="btn btn-light btn-lg px-4 py-2 rounded-pill" id="startTest">Hacer prueba</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido principal -->
+    <main class="container my-5">
+        <section class="row mb-5">
+            <div class="col-12">
+                <h1 class="text-primary mb-4">EduMetric AI</h1>
+                <div class="bg-light-blue p-4 rounded-3 shadow-sm">
+                    <p class="lead mb-4">
+                        En EduMetric AI, entendemos la importancia crucial de la admisión a la universidad. Por eso, hemos desarrollado una innovadora plataforma impulsada por inteligencia artificial que analiza tu perfil académico de manera integral.
+                    </p>
+                    <p class="lead">
+                        Nuestro objetivo es brindarte una visión clara y precisa de tus posibilidades de ingreso, permitiéndote tomar decisiones informadas y estratégicas para alcanzar tus metas educativas. Con EduMetric AI, el futuro de tu educación está en tus manos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="row text-center">
+            <div class="col-12 mb-4">
+                <h2 class="text-primary">Prueba nuestro test de admisión</h2>
+            </div>
+            <div class="col-12">
+                <a href="#" class="btn btn-primary btn-lg px-5 py-3 rounded-pill" id="comenzar">Comenzar</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-white py-4">
+        <div class="container">
+            <hr class="border-white">
+            <p class="text-center mb-0">
+                © 2025 Admit AI. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
