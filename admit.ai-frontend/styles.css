@@ -46,8 +46,8 @@ body {
     background: 
         linear-gradient(to bottom, 
             rgba(0, 89, 149, 1) 0%,  /* Azul 100% opacidad en la parte superior */
-            rgba(0, 89, 149, 1) 30%,  /* Azul sigue opaco un poco más */
-            rgba(0, 89, 149, 0.8) 60%, /* Transición a 80% opacidad */
+            rgba(0, 89, 149, 1) 15%,  /* Azul sigue opaco un poco más */
+            rgba(0, 89, 149, 0.8) 50%, /* Transición a 80% opacidad */
             rgba(255, 255, 255, 0) 100%  /* Transparente antes de llegar al fondo */
         ),
         linear-gradient(to bottom, 
