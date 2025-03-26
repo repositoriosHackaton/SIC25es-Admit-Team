@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         card.querySelector('.probability-percent').textContent = `${data.probability}%`;
         
-        // Actualizar estrellas
+        // Actualizar estrellas basadas en rating (entero)
         const starsContainer = card.querySelector('.stars');
         starsContainer.innerHTML = Array(5).fill()
-            .map((_, i) => `<i class="fas fa-star ${i < data.ranking ? 'text-warning' : ''}"></i>`)
+            .map((_, i) => `<i class="fas fa-star ${i < data.rating ? 'text-warning' : ''}"></i>`)
             .join('');
         
         // Actualizar recomendaciones
@@ -30,19 +30,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Actualizar todas las tarjetas
     updateCard('.safe-school', {
         probability: results.safeSchool.probability,
-        ranking: results.safeSchool.ranking,
+        rating: results.safeSchool.rating,  // Usa 'rating' en lugar de 'ranking'
         recommendations: results.safeSchool.recommendations
     });
 
     updateCard('.target-school', {
         probability: results.targetSchool.probability,
-        ranking: results.targetSchool.ranking,
+        rating: results.targetSchool.rating,  // Usa 'rating' en lugar de 'ranking'
         recommendations: results.targetSchool.recommendations
     });
 
     updateCard('.reach-school', {
         probability: results.reachSchool.probability,
-        ranking: results.reachSchool.ranking,
+        rating: results.reachSchool.rating,  // Usa 'rating' en lugar de 'ranking'
         recommendations: results.reachSchool.recommendations
     });
 });

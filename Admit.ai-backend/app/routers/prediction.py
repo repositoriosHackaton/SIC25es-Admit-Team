@@ -19,12 +19,11 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 router = APIRouter()
 
 recommendations = [
-    ["No recommendations"],  # rating 0
-    ["University of Akron", "University of Alabama at Birmingham", "University of Alabama in Huntsville", "University of Alaska Anchorage", "University of Arkansas at Little Rock", "University of Arkansas for Medical Sciences", "University of Baltimore", "University of Bridgeport"],  # rating 1
-    ["University of Alabama", "University of Alaska Fairbanks", "University of Arkansas", "University of California, Merced", "University of Central Florida", "University of Cincinnati", "University of Colorado Colorado Springs", "University of Colorado Denver"],  # rating 2
-    ["University of Arizona", "University of Colorado Boulder", "University of Connecticut", "University of Delaware", "University of Houston", "University of Iowa", "University of Kansas", "University of Kentucky"],  # rating 3
-    ["University of Illinois Urbana-Champaign", "University of Wisconsin-Madison", "University of Washington", "University of Texas at Austin", "University of Florida", "University of Georgia", "University of Maryland, College Park", "University of Minnesota, Twin Cities"],  # rating 4
-    ["University of California, Berkeley", "University of California, Los Angeles", "University of California, San Diego", "University of California, Santa Barbara", "University of California, Irvine", "University of California, Davis", "University of California, Riverside", "University of California, Merced"],  # rating 5
+    ["University of Akron", "University of Alabama at Birmingham", "University of Alabama in Huntsville", "University of Alaska Anchorage", "University of Arkansas at Little Rock", "University of Arkansas for Medical Sciences", "University of Baltimore", "University of Bridgeport"],  # rating 0
+    ["University of Alabama", "University of Alaska Fairbanks", "University of Arkansas", "University of California, Merced", "University of Central Florida", "University of Cincinnati", "University of Colorado Colorado Springs", "University of Colorado Denver"],  # rating 1
+    ["University of Arizona", "University of Colorado Boulder", "University of Connecticut", "University of Delaware", "University of Houston", "University of Iowa", "University of Kansas", "University of Kentucky"],  # rating 2
+    ["University of Illinois Urbana-Champaign", "University of Wisconsin-Madison", "University of Washington", "University of Texas at Austin", "University of Florida", "University of Georgia", "University of Maryland, College Park", "University of Minnesota, Twin Cities"],  # rating 3
+    ["University of California, Berkeley", "University of California, Los Angeles", "University of California, San Diego", "University of California, Santa Barbara", "University of California, Irvine", "University of California, Davis", "University of California, Riverside", "University of California, Merced"],  # rating 4
 ]
 
 class PredictionRequest(BaseModel):
@@ -62,58 +61,63 @@ def hierarchical_model(X, groups, n_groups, y=None):
 async def predict_endpoint(request: PredictionRequest):
     predictions = []
 
-    for universityRating in range(1, 6):
+    for universityRating in range(1, 5):
         
         values = np.array([[request.greScore, request.toeflScore, request.sop, request.lor, request.cgpa, request.research]])
         escalado = scaler.transform(values)
         rating = np.array([universityRating - 1])
         predictive = Predictive(hierarchical_model, model)
         predictions_dict = predictive(rng_key, X=escalado, groups=rating, n_groups=5)
-        predictions.append(jnp.mean(predictions_dict["obs"]) * 100)
+        predictions.append(round(float(jnp.mean(predictions_dict["obs"])) * 100, 2))
     
-    safeSchool = 0
-    targetSchool = 0
-    reachSchool = 0
+    safeSchool = 1
+    targetSchool = 1
+    reachSchool = 1
 
-    predictSafeSchool = 0
-    predictTargetSchool = 0
-    predictReachSchool = 0
+    predictSafeSchool = 50
+    predictTargetSchool = 50
+    predictReachSchool = 50
 
     logging.info(f"Predictions: {predictions}")
 
     for i, prediction in enumerate(predictions):
+
+        if prediction >= 100:
+            prediction = 99.99
+
         if prediction >= 70:
-            safeSchool = i + 1
+            safeSchool = i + 2
             predictSafeSchool = prediction
         elif prediction >= 50:
-            targetSchool = i + 1
+            targetSchool = i + 2
             predictTargetSchool = prediction
         else:
-            reachSchool = i + 1
+            reachSchool = i + 2
             predictReachSchool = prediction
 
-    if targetSchool == 0:
+
+    if targetSchool == 1:
         targetSchool = safeSchool
         predictTargetSchool = predictSafeSchool
 
-    if reachSchool == 0:
+    if reachSchool == 1:
         reachSchool = targetSchool
         predictReachSchool = predictTargetSchool
 
     return {
         "safeSchool": {
             "probability": predictSafeSchool,
-            "recommendations": recommendations[safeSchool],
+            "recommendations": recommendations[safeSchool-1],
             "rating": safeSchool
         },
         "targetSchool": {
             "probability": predictTargetSchool,
-            "recommendations": recommendations[targetSchool],
+            "recommendations": recommendations[targetSchool-1],
             "rating": targetSchool
         },
         "reachSchool": {
             "probability": predictReachSchool,
-            "recommendations": recommendations[reachSchool],
+            "recommendations": recommendations[reachSchool-1],
             "rating": reachSchool
         }
     }

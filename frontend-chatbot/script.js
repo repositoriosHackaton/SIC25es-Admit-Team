@@ -5,6 +5,11 @@ const chatMessages = document.getElementById('chat-messages');
 // Función para enviar preguntas al chatbot
 function enviarPregunta(customMessage = null) {
     // Determinar la pregunta (de input o del parámetro)
+
+    if (customMessage && typeof customMessage !== 'string') {
+        customMessage = null;
+    }
+
     const pregunta = customMessage || inputElement.value.trim();
 
     if (!pregunta) return; // Evita enviar preguntas vacías
