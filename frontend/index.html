@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot de Preguntas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../admit.ai-frontend/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        
+        <div class="container">
+            <a class="navbar-brand" href="../admit.ai-frontend/index.html">
+                <img src="../admit.ai-frontend/logo.png" alt="Logo" width="50" height="50">
+                <span>Admit AI</span>
+            </a>
+            
+            <button class="navbar-toggler" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../admit.ai-frontend/index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../admit.ai-frontend/test.html">Formulario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Chatbot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../admit.ai-frontend/contactenos.html">Contáctanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../admit.ai-frontend/sobre-nosotros.html">Sobre Nosotros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <h2>Chatbot AdmitAI</h2>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            <div class="initial-message">
+                🤖 ¡Hola! Aquí tienes algunas preguntas sugeridas:
+            </div>
+            
+            <div class="suggested-questions">
+                <div class="suggested-question">¿Cómo puedo aplicar a universidades en EE.UU.?</div>
+                <div class="suggested-question">¿Qué carreras tienen mayor demanda en el futuro?</div>
+                <div class="suggested-question">¿Cómo aprender a programar desde cero?</div>
+                <div class="suggested-question">¿Cuáles son los beneficios de aprender inglés?</div>
+            </div>
+        </div>
+        
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Escribe tu pregunta...">
+            <button onclick="enviarPregunta()">Enviar</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="app.js"></script>
+    <script src="test.js"></script>
+</body>
+</html>
