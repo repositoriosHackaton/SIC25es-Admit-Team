@@ -23,6 +23,9 @@ Aplicación que, basada en datos de diferentes fuentes (exámenes como el GRE, T
 
 ### Arquitectura
 
+![image](https://github.com/user-attachments/assets/790467c1-84af-466b-a6bb-bdf92c5a9ba1)
+
+
 #### Backend:
 
 *   Se utiliza FastAPI para exponer el modelo de predicción.
